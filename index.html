@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Frontend Mentor | Todo app</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="header__title">Todo</h1>
+        <button class="header__theme-toggle"></button>
+      </header>
+      <main class="todo">
+        <div class="todo__input">
+          <input class="todo__input-checkbox" type="checkbox" name="" id="" />
+          <input class="todo__input-text" type="text" name="" id="" />
+        </div>
+        <div class="todo__list">
+          <ul class="todo__list-items">
+            <li class="todo__list-item">
+              <input type="checkbox" name="" id="task0" />
+              <label for="task0">Complete online JavaScript course </label>
+              <button>x</button>
+            </li>
+            <li class="todo__list-item">
+              <input type="checkbox" name="" id="task1" />
+              <label for="task1">Jog around the park x3</label>
+              <button>x</button>
+            </li>
+            <li class="todo__list-item">
+              <input type="checkbox" name="" id="task2" />
+              <label for="task2">10 minutes meditation</label>
+              <button>x</button>
+            </li>
+            <li class="todo__list-item">
+              <input type="checkbox" name="" id="task3" />
+              <label for="task3">Read for 1 hour</label>
+              <button>x</button>
+            </li>
+            <li class="todo__list-item">
+              <input type="checkbox" name="" id="task4" />
+              <label for="task4">Pick up groceries</label>
+              <button>x</button>
+            </li>
+            <li class="todo__list-item">
+              <input type="checkbox" name="" id="task5" />
+              <label for="task5">Compelete Todo app Frontend Mentor</label>
+              <button>x</button>
+            </li>
+          </ul>
+          <div class="todo__list-options">
+            <p>5 items left</p>
+            <div>
+              <button>All</button>
+              <button>Active</button>
+              <button>Completed</button>
+            </div>
+            <button>Clear Completed</button>
+          </div>
+        </div>
+      </main>
+      <p>Drag and drop to reorder list</p>
+    </div>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </footer>
+  </body>
+</html>
