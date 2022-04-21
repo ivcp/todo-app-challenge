@@ -29,61 +29,82 @@
       </header>
       <main class="todo">
         <div class="todo__input">
-          <input class="todo__input-checkbox" type="checkbox" name="" id="" />
-          <input class="todo__input-text" type="text" name="" id="" />
+          <div class="todo__input-circle"></div>
+          <input
+            class="todo__input-text"
+            type="text"
+            name=""
+            id="todo-input"
+            placeholder="Create a new todo..."
+          />
         </div>
         <div class="todo__list">
           <ul class="todo__list-items">
             <li class="todo__list-item">
               <input type="checkbox" name="" id="task0" />
-              <label for="task0">Complete online JavaScript course </label>
-              <button>x</button>
+              <label for="task0">
+                <span></span>
+                Complete online JavaScript course
+              </label>
+              <button></button>
             </li>
             <li class="todo__list-item">
               <input type="checkbox" name="" id="task1" />
-              <label for="task1">Jog around the park x3</label>
-              <button>x</button>
+
+              <label for="task1"><span></span>Jog around the park x3</label>
+
+              <button></button>
             </li>
             <li class="todo__list-item">
               <input type="checkbox" name="" id="task2" />
-              <label for="task2">10 minutes meditation</label>
-              <button>x</button>
+
+              <label for="task2"> <span></span>10 minutes meditation</label>
+
+              <button></button>
             </li>
             <li class="todo__list-item">
               <input type="checkbox" name="" id="task3" />
-              <label for="task3">Read for 1 hour</label>
-              <button>x</button>
+
+              <label for="task3"> <span></span>Read for 1 hour</label>
+
+              <button></button>
             </li>
             <li class="todo__list-item">
               <input type="checkbox" name="" id="task4" />
-              <label for="task4">Pick up groceries</label>
-              <button>x</button>
+
+              <label for="task4"> <span></span>Pick up groceries</label>
+
+              <button></button>
             </li>
             <li class="todo__list-item">
               <input type="checkbox" name="" id="task5" />
-              <label for="task5">Compelete Todo app Frontend Mentor</label>
-              <button>x</button>
+
+              <label for="task5">
+                <span></span>Compelete Todo app Frontend Mentor</label
+              >
+
+              <button></button>
             </li>
           </ul>
           <div class="todo__list-options">
-            <p>5 items left</p>
-            <div>
-              <button>All</button>
-              <button>Active</button>
-              <button>Completed</button>
+            <p><span>5</span> items left</p>
+            <div class="tabs" role="tablist" aria-label="sort todos">
+              <button role="tab" aria-selected="true">All</button>
+              <button role="tab">Active</button>
+              <button role="tab">Completed</button>
             </div>
-            <button>Clear Completed</button>
+            <button class="clear-btn">Clear Completed</button>
           </div>
         </div>
       </main>
-      <p>Drag and drop to reorder list</p>
+      <p class="todo__drag">Drag and drop to reorder list</p>
     </div>
 
     <footer class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+      >. Coded by <a href="#">ivcp</a>.
     </footer>
   </body>
 </html>
