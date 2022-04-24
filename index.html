@@ -18,6 +18,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script defer type="module" src="./js/app.js"></script>
 
     <title>Frontend Mentor | Todo app</title>
   </head>
@@ -49,7 +50,7 @@
                 <span></span>
                 Complete online JavaScript course
               </label>
-              <button><span class="sr-only">Delete</span></button>
+              <button id="delete"><span class="sr-only">Delete</span></button>
             </li> -->
             <!-- <li class="todo__list-item">
               <input type="checkbox" name="Check" id="task1" />
@@ -93,9 +94,9 @@
           <div class="todo__list-options">
             <p><span class="items-left"></span> items left</p>
             <div class="tabs" role="tablist" aria-label="sort todos">
-              <button role="tab" aria-selected="true">All</button>
-              <button role="tab">Active</button>
-              <button role="tab">Completed</button>
+              <button role="tab" tabindex="0" aria-selected="true">All</button>
+              <button role="tab" tabindex="0">Active</button>
+              <button role="tab" tabindex="0">Completed</button>
             </div>
             <button class="clear-btn">Clear Completed</button>
           </div>

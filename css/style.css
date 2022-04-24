@@ -12,6 +12,7 @@
     hsl(192, 100%, 67%),
     hsl(280, 87%, 65%)
   );
+  --border-radius: 0.4rem;
 }
 
 .light {
@@ -53,11 +54,19 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 }
 
 body.light {
   background-image: url(../images/bg-desktop-light.jpg);
+}
+
+@media (max-width: 23.4375em) {
+  body {
+    background-image: url(../images/bg-mobile-dark.jpg);
+  }
+  body.light {
+    background-image: url(../images/bg-mobile-light.jpg);
+  }
 }
 
 .sr-only {
@@ -73,7 +82,8 @@ body.light {
 }
 
 .container {
-  margin-block: auto;
+  margin-bottom: auto;
+  padding-top: 10vh;
   display: grid;
   row-gap: 4rem;
   width: 55rem;
@@ -109,11 +119,17 @@ body.light {
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  /* transition: background 0.2s ease-in;*/
 }
 
 body.light .header__theme-toggle {
   background-image: url(../images/icon-moon.svg);
+}
+
+@media (max-width: 37.5em) {
+  .header__theme-toggle {
+    width: 5rem;
+    height: 5rem;
+  }
 }
 
 .todo {
@@ -123,7 +139,7 @@ body.light .header__theme-toggle {
   margin-bottom: 2rem;
   background-color: hsl(var(--background-list));
   padding: 2rem;
-  border-radius: 0.3rem;
+  border-radius: var(--border-radius);
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -149,12 +165,12 @@ body.light .header__theme-toggle {
 }
 
 .todo__list {
-  background-color: hsl(var(--background-list));
-  border-radius: 0.3rem;
+  border-radius: var(--border-radius);
   box-shadow: 0 2rem 4rem 1rem hsl(0 0% 0% / 0.1);
 }
 
 .todo__list-items {
+  background-color: hsl(var(--background-list));
   list-style: none;
 }
 
@@ -266,7 +282,7 @@ body.light .header__theme-toggle {
   }
 
   .todo__list-item label {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -284,6 +300,7 @@ body.light .header__theme-toggle {
   font-size: 1.4rem;
   font-weight: 700;
   color: hsl(var(--border-2));
+  background: hsl(var(--background-list));
 }
 
 .tabs {
@@ -314,7 +331,7 @@ body.light .header__theme-toggle {
 
 @media (max-width: 37.5em) {
   .todo__list-options {
-    background: hsl(var(--background));
+    background: transparent;
     grid-template-rows: repeat(2, 1fr);
     row-gap: 2rem;
     padding: 0;
@@ -327,8 +344,8 @@ body.light .header__theme-toggle {
     grid-row: 1;
     grid-column: 1 / -1;
     padding-left: 2rem;
-    border-bottom-left-radius: 0.2rem;
-    border-bottom-right-radius: 0.2rem;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
   }
   .tabs {
     grid-row: 2;
@@ -337,8 +354,12 @@ body.light .header__theme-toggle {
     font-size: 2rem;
     width: 100%;
     padding-block: 2rem;
-    border-radius: 0.2rem;
+    border-radius: var(--border-radius);
     background: hsl(var(--background-list));
+  }
+
+  .todo__list-options button:hover {
+    color: hsl(var(--bright-blue));
   }
 
   .clear-btn {
