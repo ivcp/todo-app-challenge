@@ -10,6 +10,7 @@ import {
 
 class App {
   #todos = [];
+
   constructor() {
     this.#getLocalStorage();
     this.#displayItemsLeft();
@@ -38,13 +39,18 @@ class App {
       this.#displayItemsLeft();
       //save all todos to local storage
       this.#setLocalStorage();
+      this.#displayAllTodos();
     }
   }
 
   #displayTodo(todo) {
     const html = `
-    <li class="todo__list-item">
-      <input ${todo.completed && 'checked'} type="checkbox" id="${todo.id}" />
+    <li class="todo__list-item" data-index="${this.#todos.indexOf(
+      todo
+    )}" draggable="true" >
+      <input ${todo.completed ? 'checked' : ''} type="checkbox" id="${
+      todo.id
+    }" />
       <label for="${todo.id}">
         <span></span>
         ${todo.text}
@@ -66,6 +72,9 @@ class App {
     const todo = this.#todos.find(todo => todo.id === e.target.id);
     // set completed status
     todo.completed = e.target.checked;
+    e.target.checked
+      ? e.target.setAttribute('checked', '')
+      : e.target.removeAttribute('checked', '');
     this.#displayItemsLeft();
     // save to local storage
     this.#setLocalStorage();
@@ -78,6 +87,7 @@ class App {
     this.#todos = this.#todos.filter(todo => todo.id !== id);
     // remove from html
     todoItem.remove();
+    //items left
     this.#displayItemsLeft();
     // save to local storage
     this.#setLocalStorage();
@@ -104,6 +114,7 @@ class App {
     todoItems.innerHTML = '';
     // display todos
     todos.forEach(todo => this.#displayTodo(todo));
+    this.#enableDragAndDrop();
   }
 
   #clearCompleted(e) {
@@ -117,6 +128,7 @@ class App {
   #displayAllTodos() {
     todoItems.innerHTML = '';
     this.#todos.forEach(todo => this.#displayTodo(todo));
+    this.#enableDragAndDrop();
   }
 
   #displayItemsLeft() {
@@ -130,6 +142,51 @@ class App {
   #toggleTheme() {
     //toggle dark/light mode
     document.querySelector('body').classList.toggle('light');
+  }
+
+  #enableDragAndDrop() {
+    const draggables = document.querySelectorAll('[draggable="true"]');
+    let dragStartIndex;
+    const dragStart = function () {
+      dragStartIndex = +this.getAttribute('data-index');
+    };
+    const dragOver = function (e) {
+      e.preventDefault();
+    };
+    const drop = function () {
+      const dragEndIndex = +this.getAttribute('data-index');
+      swapItems(dragStartIndex, dragEndIndex);
+      this.classList.remove('over');
+    };
+    const dragEnter = function () {
+      this.classList.add('over');
+    };
+    const dragLeave = function () {
+      this.classList.remove('over');
+    };
+    const swapItems = (fromIndex, toIndex) => {
+      //swap in html
+      const item1 = todoItems.querySelector(`[data-index="${fromIndex}"]`);
+      const item2 = todoItems.querySelector(`[data-index="${toIndex}"]`);
+      const content1 = item1.innerHTML;
+      const content2 = item2.innerHTML;
+      item1.innerHTML = content2;
+      item2.innerHTML = content1;
+      // swap in list and save to local storage
+      [this.#todos[fromIndex], this.#todos[toIndex]] = [
+        this.#todos[toIndex],
+        this.#todos[fromIndex],
+      ];
+      this.#setLocalStorage();
+    };
+
+    draggables.forEach(item => {
+      item.addEventListener('dragstart', dragStart);
+      item.addEventListener('dragover', dragOver);
+      item.addEventListener('drop', drop);
+      item.addEventListener('dragenter', dragEnter);
+      item.addEventListener('dragleave', dragLeave);
+    });
   }
 
   #setLocalStorage() {

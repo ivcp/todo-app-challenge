@@ -185,6 +185,7 @@ body.light .header__theme-toggle {
   display: flex;
   align-items: center;
   border-bottom: 1px solid hsl(var(--border));
+  transition: background-color 0.15s;
 }
 
 .todo__list-item input {
@@ -391,4 +392,10 @@ body.light .header__theme-toggle {
 }
 .attribution a {
   color: hsl(var(--bright-blue), 0.6);
+}
+
+/* drag n drop */
+
+.over {
+  background-color: hsl(var(--bright-blue), 0.2);
 }
