@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://candid-marzipan-89c261.netlify.app/)
+[Live Site URL](https://candid-marzipan-89c261.netlify.app/)
 
 ## My process
 
